@@ -2,15 +2,10 @@ package com.javarush.jira.profile.web;
 
 import com.javarush.jira.MatcherFactory;
 import com.javarush.jira.common.util.JsonUtil;
-import com.javarush.jira.login.Role;
-import com.javarush.jira.login.User;
 import com.javarush.jira.login.UserTo;
 import com.javarush.jira.profile.ContactTo;
 import com.javarush.jira.profile.ProfileTo;
-import com.javarush.jira.profile.internal.Contact;
-import com.javarush.jira.profile.internal.Profile;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class ProfileTestData {

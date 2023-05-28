@@ -1,6 +1,5 @@
 package com.javarush.jira.bugtracking.internal.repository;
 
-import com.javarush.jira.bugtracking.attachment.Attachment;
 import com.javarush.jira.bugtracking.internal.model.UserBelong;
 import com.javarush.jira.common.BaseRepository;
 import org.springframework.data.jpa.repository.Query;

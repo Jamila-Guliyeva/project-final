@@ -38,3 +38,5 @@
 + <img alt="img_4.png" height="300" src="img/img_4.png" width="800"/>
 + Написать Dockerfile для основного сервера
 + ![img_2.png](img/img_2.png)
++ Написать docker-compose файл для запуска контейнера сервера вместе с БД и nginx. Для nginx используй конфиг-файл config/nginx.conf.
++ ![img.png](img/img_compose.png)

@@ -8,7 +8,7 @@ services:
       - db
       - nginx
     environment:
-      - DATASOURCE_URL=jdbc:postgresql://localhost:5432/jira
+      - DATASOURCE_URL=jdbc:postgresql://db:5432/jira
       - DATASOURCE_USERNAME=jira
       - DATASOURCE_PASSWORD=JiraRush
       - GITHUB_CLIENT_ID=3d0d8738e65881fff266
@@ -19,13 +19,6 @@ services:
       - GITLAB_CLIENT_SECRET=e72c65320cf9d6495984a37b0f9cc03ec46be0bb6f071feaebbfe75168117004
       - TEST_EMAIL=jira4jr@gmail.com
       - MAIL_PASSWORD=zdfzsrqvgimldzyj
-      - MAIL_HOST=smtp.gmail.com
-      - CLIENT_NAME=GitLab
-      - AUTHORIZATION_URI=https://gitlab.com/oauth/authorize
-      - TOKEN_URI=https://gitlab.com/oauth/token
-      - USER_INFO_URI=https://gitlab.com/api/v4/user
-      - MAIL_USERNAME=jira4jr@gmail.com
-      - USER_NAME_ATTRIBUTE=email
 
   db:
     image: postgres
@@ -38,13 +31,16 @@ services:
       - my-db:/var/lib/postgres
 
   nginx:
-    container_name: provectus-nginx
-    image: nginx:latest
+    container_name: nginx
+    image: nginx:1.13
     restart: always
     ports:
       - 80:80
-      - 443:443
     volumes:
       - ./config/:/etc/nginx/conf.d
+      - ./config/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./resources:/etc/resources
+      - ./src:/usr/share/nginx/html
+      - ./resources/static:/opt/jirarush/resources/static:ro
 volumes:
   my-db:
